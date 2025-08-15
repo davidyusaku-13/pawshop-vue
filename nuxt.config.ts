@@ -10,20 +10,11 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
-    '@nuxtjs/supabase',
     '@pinia/nuxt',
     '@vee-validate/nuxt',
     '@vueuse/nuxt',
     '@nuxtjs/seo'
   ],
-
-  supabase: {
-    redirectOptions: {
-      login: '/auth/login',
-      callback: '/auth/callback',
-      exclude: ['/']
-    }
-  },
 
   runtimeConfig: {
     stripeSecretKey: process.env.STRIPE_SECRET_KEY,

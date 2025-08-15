@@ -3,24 +3,21 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
-  id            String    @id @default(cuid())
-  email         String    @unique
-  firstName     String?   @map("first_name")
-  lastName      String?   @map("last_name") 
-  phone         String?
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
+  id        String    @id @default(cuid())
+  email     String    @unique
+  firstName String?   @map("first_name")
+  lastName  String?   @map("last_name")
+  createdAt DateTime  @default(now()) @map("created_at")
   
-  orders        Order[]
-  cart          Cart[]
-  addresses     Address[]
-  reviews       Review[]
+  orders    Order[]
+  cart      Cart[]
+  addresses Address[]
+  reviews   Review[]
   
   @@map("users")
 }
